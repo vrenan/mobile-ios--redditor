@@ -13,8 +13,9 @@ struct News {
     var title: String
     var numberComments: Int
     var created: Int
-    var thumbnail: URL
-    var url: URL
+    var thumbnail: URL?
+    var url: URL?
     var permalink: URL
     var subredit: String
+    
 }

@@ -13,7 +13,7 @@ class RedditService: ListNewsGateway {
     
     func listNews() -> Promise<[News]> {
         return Promise { seal in
-            let urlString = "https://www.reddit.com/top.json?limit=20"
+            let urlString = "https://www.reddit.com/top.json?limit=40"
             let url = URL(string: urlString)!
             URLSession.shared.dataTask(with: url) { data, _, error in
                 guard let data = data,
@@ -25,31 +25,46 @@ class RedditService: ListNewsGateway {
                         seal.reject(error ?? genericError)
                         return
                 }
-                
-                seal.fulfill(self.map(result))
+                do {
+                    let mappedResults = try self.map(result)
+                    seal.fulfill(mappedResults)
+                } catch {
+                    seal.reject(error)
+                }
                 }.resume()
         }
     }
     
-    func map(_ response: RedditNewsResponse) -> [News] {
+    func map(_ response: RedditNewsResponse) throws -> [News] {
         
         guard let children = response.data.children else {
-            return [News]()
+            let genericError = NSError(
+                domain: "Redditor",
+                code: 0,
+                userInfo: [NSLocalizedDescriptionKey: "Não encontrado objetos"])
+            throw genericError
         }
         
         return children.compactMap { (redditResponse) -> News in
             let data = redditResponse.data
-            
-            return News(author: data.author,
+            let thumbnail = data.thumbnail
+            let thumbnailUrl = validateUrl(thumbnail) ? URL(string: thumbnail) : nil
+            return News(
+                author: data.author,
                         title: data.title,
                         numberComments: data.num_comments,
                         created: data.created,
-                        thumbnail: URL(string: data.thumbnail)!,
-                        url: URL(string: data.url)!,
+                        thumbnail: thumbnailUrl,
+                        url: URL(string: data.url),
                         permalink: create(permalink: data.permalink),
                         subredit: data.subreddit_name_prefixed
             )
         }
+    }
+    
+    func validateUrl( _ value: String) -> Bool {
+        let urlRegEx = "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+"
+        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: value)
     }
     
     func create(permalink: String) -> URL {

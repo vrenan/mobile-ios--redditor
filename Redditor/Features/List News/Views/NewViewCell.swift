@@ -19,12 +19,17 @@ class NewViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        thumbnailView.isHidden = true
     }
     
     func prepare(with model: News) {
         self.titleLabel.text = model.title
         self.subreditLabel.text = model.subredit
-        self.thumbnailView.kf.setImage(with: model.thumbnail)
+
+        if let url = model.thumbnail {
+            thumbnailView.isHidden = false
+            self.thumbnailView.kf.setImage(with: url)
+        }
     }
 
 }
