@@ -48,23 +48,18 @@ class RedditService: ListNewsGateway {
         return children.compactMap { (redditResponse) -> News in
             let data = redditResponse.data
             let thumbnail = data.thumbnail
-            let thumbnailUrl = validateUrl(thumbnail) ? URL(string: thumbnail) : nil
+
             return News(
                 author: data.author,
                         title: data.title,
                         numberComments: data.num_comments,
                         created: data.created,
-                        thumbnail: thumbnailUrl,
+                        thumbnail: URL(string: thumbnail),
                         url: URL(string: data.url),
                         permalink: create(permalink: data.permalink),
                         subredit: data.subreddit_name_prefixed
             )
         }
-    }
-    
-    func validateUrl( _ value: String) -> Bool {
-        let urlRegEx = "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+"
-        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: value)
     }
     
     func create(permalink: String) -> URL {
