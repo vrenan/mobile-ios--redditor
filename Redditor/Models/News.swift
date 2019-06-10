@@ -15,4 +15,6 @@ struct News {
     var created: Int
     var thumbnail: URL
     var url: URL
+    var permalink: URL
+    var subredit: String
 }

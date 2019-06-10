@@ -14,7 +14,7 @@ class NewViewCell: UITableViewCell {
     static let identifier = "Cell"
 
     @IBOutlet weak var thumbnailView: UIImageView!
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var subreditLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
@@ -23,7 +23,7 @@ class NewViewCell: UITableViewCell {
     
     func prepare(with model: News) {
         self.titleLabel.text = model.title
-        self.authorLabel.text = model.author
+        self.subreditLabel.text = model.subredit
         self.thumbnailView.kf.setImage(with: model.thumbnail)
     }
 

@@ -8,11 +8,24 @@
 
 import Foundation
 
-class RedditNewsDataResponse: Codable {
-    var author: String
-    var title: String
-    var num_comments: Int
-    var created: Int
-    var thumbnail: String
-    var url: String
+struct RedditNewsDataResponse: Codable {
+    let author: String
+    let title: String
+    let num_comments: Int
+    let subreddit_name_prefixed: String
+    let created: Int
+    let thumbnail: String
+    let url: String
+    let permalink: String
+    
+    enum CodingKeys: String, CodingKey {
+        case subreddit_name_prefixed = "subreddit_name_prefixed"
+        case author = "author"
+        case title = "title"
+        case num_comments = "num_comments"
+        case created = "created"
+        case thumbnail = "thumbnail"
+        case url = "url"
+        case permalink = "permalink"
+    }
 }

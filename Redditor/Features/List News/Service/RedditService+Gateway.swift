@@ -13,7 +13,7 @@ class RedditService: ListNewsGateway {
     
     func listNews() -> Promise<[News]> {
         return Promise { seal in
-            let urlString = "https://www.reddit.com/top.json?limit=10"
+            let urlString = "https://www.reddit.com/top.json?limit=20"
             let url = URL(string: urlString)!
             URLSession.shared.dataTask(with: url) { data, _, error in
                 guard let data = data,
@@ -39,13 +39,20 @@ class RedditService: ListNewsGateway {
         
         return children.compactMap { (redditResponse) -> News in
             let data = redditResponse.data
-
+            
             return News(author: data.author,
                         title: data.title,
                         numberComments: data.num_comments,
                         created: data.created,
                         thumbnail: URL(string: data.thumbnail)!,
-                        url: URL(string: data.url)!)
+                        url: URL(string: data.url)!,
+                        permalink: create(permalink: data.permalink),
+                        subredit: data.subreddit_name_prefixed
+            )
         }
+    }
+    
+    func create(permalink: String) -> URL {
+        return URL(string: "https://www.reddit.com\(permalink)")!
     }
 }

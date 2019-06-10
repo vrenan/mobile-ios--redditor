@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		1C93D1E540043D9C1028F753 /* Pods_Redditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E023C16D5E4D964059E5CD /* Pods_Redditor.framework */; };
 		408881DAB73E8CD9BE44936D /* Pods_RedditorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEFBF1ABB221260EACF3BF1 /* Pods_RedditorTests.framework */; };
+		570E808722AEABEA004D6737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570E808622AEABEA004D6737 /* Assets.xcassets */; };
 		572800D822AE157800CDAF4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572800D722AE157800CDAF4E /* AppDelegate.swift */; };
 		572800DA22AE157800CDAF4E /* ListNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572800D922AE157800CDAF4E /* ListNewsViewController.swift */; };
 		572800DF22AE157800CDAF4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 572800DD22AE157800CDAF4E /* Main.storyboard */; };
-		572800E122AE157A00CDAF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572800E022AE157A00CDAF4E /* Assets.xcassets */; };
 		572800E422AE157A00CDAF4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 572800E222AE157A00CDAF4E /* LaunchScreen.storyboard */; };
 		572800EF22AE157A00CDAF4E /* RedditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572800EE22AE157A00CDAF4E /* RedditorTests.swift */; };
 		572800FB22AE1A2900CDAF4E /* RedditChildrenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572800FA22AE1A2900CDAF4E /* RedditChildrenResponse.swift */; };
@@ -40,11 +40,11 @@
 /* Begin PBXFileReference section */
 		0461C862A03161A120D3321E /* Pods-Redditor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redditor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Redditor/Pods-Redditor.debug.xcconfig"; sourceTree = "<group>"; };
 		11E023C16D5E4D964059E5CD /* Pods_Redditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Redditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		570E808622AEABEA004D6737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		572800D422AE157800CDAF4E /* Redditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Redditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		572800D722AE157800CDAF4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		572800D922AE157800CDAF4E /* ListNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNewsViewController.swift; sourceTree = "<group>"; };
 		572800DE22AE157800CDAF4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		572800E022AE157A00CDAF4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		572800E322AE157A00CDAF4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		572800E522AE157A00CDAF4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		572800EA22AE157A00CDAF4E /* RedditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,8 +112,8 @@
 				5728010E22AE1D1600CDAF4E /* Models */,
 				5728010D22AE1CAE00CDAF4E /* Features */,
 				572800D722AE157800CDAF4E /* AppDelegate.swift */,
+				570E808622AEABEA004D6737 /* Assets.xcassets */,
 				572800DD22AE157800CDAF4E /* Main.storyboard */,
-				572800E022AE157A00CDAF4E /* Assets.xcassets */,
 				572800E222AE157A00CDAF4E /* LaunchScreen.storyboard */,
 				572800E522AE157A00CDAF4E /* Info.plist */,
 			);
@@ -291,7 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				572800E422AE157A00CDAF4E /* LaunchScreen.storyboard in Resources */,
-				572800E122AE157A00CDAF4E /* Assets.xcassets in Resources */,
+				570E808722AEABEA004D6737 /* Assets.xcassets in Resources */,
 				572800DF22AE157800CDAF4E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,6 +548,7 @@
 			baseConfigurationReference = 0461C862A03161A120D3321E /* Pods-Redditor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R2YSM4MY6R;
 				INFOPLIST_FILE = Redditor/Info.plist;
@@ -567,6 +568,7 @@
 			baseConfigurationReference = 650E225056F85AAE5DE22073 /* Pods-Redditor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R2YSM4MY6R;
 				INFOPLIST_FILE = Redditor/Info.plist;

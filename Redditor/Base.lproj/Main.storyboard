@@ -65,7 +65,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="authorLabel" destination="kAM-oX-UvK" id="ac7-fg-Wb1"/>
+                                    <outlet property="subreditLabel" destination="kAM-oX-UvK" id="ac7-fg-Wb1"/>
                                     <outlet property="thumbnailView" destination="8Ya-e3-uWA" id="x61-LA-vzr"/>
                                     <outlet property="titleLabel" destination="59s-sR-RXD" id="D8W-x6-hCr"/>
                                 </connections>
@@ -90,7 +90,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="5NR-UG-dNL">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.044890634720000003" green="0.14760568739999999" blue="0.2078520656" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.0" green="0.15196159482002258" blue="0.21359577775001526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

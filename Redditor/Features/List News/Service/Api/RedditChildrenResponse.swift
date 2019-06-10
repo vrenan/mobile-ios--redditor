@@ -8,6 +8,6 @@
 
 import Foundation
 
-class RedditChildrenResponse: Codable {
+struct RedditChildrenResponse: Codable {
     var data: RedditNewsDataResponse
 }
