@@ -9,7 +9,7 @@
 import Foundation
 import SVProgressHUD
 
-protocol ListNewsView {
+protocol ListNewsView: class {
     func startLoading()
     func stopLoading()
     func reloadData()
