@@ -12,7 +12,6 @@ import Kingfisher
 class NewViewCell: UITableViewCell {
     
     static let identifier = "Cell"
-    private let processor = RoundCornerImageProcessor(cornerRadius: 20)
 
     @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
@@ -25,7 +24,7 @@ class NewViewCell: UITableViewCell {
     func prepare(with model: News) {
         self.titleLabel.text = model.title
         self.authorLabel.text = model.author
-        self.thumbnailView.kf.setImage(with: model.thumbnail, options: [.processor(processor)])
+        self.thumbnailView.kf.setImage(with: model.thumbnail)
     }
 
 }

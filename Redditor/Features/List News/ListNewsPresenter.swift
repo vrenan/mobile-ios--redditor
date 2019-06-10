@@ -36,13 +36,26 @@ class ListNewsPresenter {
         })
     }
     
+    func refreshNews() {
+        _ = gateway.listNews().done({ news in
+            self.view?.stopRefreshing()
+            self.updateData(news)
+        }).catch({ error in
+            print(error)
+        })
+    }
+    
     func viewWillDisappear() {
         view = nil
     }
     
-    private func handleNews( _ news: [News]) {
-        self.view?.stopLoading()
+    private func updateData(_ news: [News]) {
         self.models = news
         self.view?.reloadData()
+    }
+    
+    private func handleNews( _ news: [News]) {
+        self.view?.stopLoading()
+        updateData(news)
     }
 }

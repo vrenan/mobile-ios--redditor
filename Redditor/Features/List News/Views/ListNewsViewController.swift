@@ -11,11 +11,24 @@ import SVProgressHUD
 
 class ListNewsController: UITableViewController {
     
-    let presenter = ListNewsPresenter()
+    private let presenter = ListNewsPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad(self)
+        prepare(tableView)
+    }
+
+    private func prepare(_ tableView: UITableView) {
+        refreshControl = createRefreshControl()
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
+    private func createRefreshControl() -> UIRefreshControl {
+        let control = UIRefreshControl()
+        control.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        control.addTarget(self, action: #selector(refreshNews), for: .valueChanged)
+        return control
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,6 +41,10 @@ class ListNewsController: UITableViewController {
         }
         cell.prepare(with: presenter.modelForRow(at: indexPath))
         return cell
+    }
+    
+    @objc func refreshNews() {
+        presenter.refreshNews()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

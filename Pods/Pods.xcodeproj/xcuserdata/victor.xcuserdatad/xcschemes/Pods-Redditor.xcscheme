@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F2196C8DB708252C837CFA0CF1B333BA"
+               BlueprintIdentifier = "51E02FEEC3311F65C20442DFBF7E2CB9"
                BuildableName = "Pods_Redditor.framework"
                BlueprintName = "Pods-Redditor"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F2196C8DB708252C837CFA0CF1B333BA"
+            BlueprintIdentifier = "51E02FEEC3311F65C20442DFBF7E2CB9"
             BuildableName = "Pods_Redditor.framework"
             BlueprintName = "Pods-Redditor"
             ReferencedContainer = "container:Pods.xcodeproj">

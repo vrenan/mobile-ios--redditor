@@ -13,6 +13,7 @@ protocol ListNewsView {
     func startLoading()
     func stopLoading()
     func reloadData()
+    func stopRefreshing()
 }
 
 extension ListNewsController: ListNewsView {
@@ -26,5 +27,9 @@ extension ListNewsController: ListNewsView {
     
     func reloadData() {
         self.tableView.reloadData()
+    }
+    
+    func stopRefreshing() {
+        self.refreshControl?.endRefreshing()
     }
 }
